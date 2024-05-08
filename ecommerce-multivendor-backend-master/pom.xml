@@ -124,6 +124,11 @@
                               <artifactId>sonar-maven-plugin</artifactId>
                               <version>3.11.0.3922</version>
         </plugin>
+			<plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.8.0.2131</version> <!-- Use the version compatible with SonarQube Scanner 4.8 -->
+        </plugin>
 		</plugins>
 	</build>
 
