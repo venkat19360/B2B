@@ -20,8 +20,7 @@ FROM base as final
 RUN rm -rf /var/cache/apk/*
 
 # Use specific versions for dependencies
-RUN apk add --no-cache --virtual .build-deps \
-    openjdk@17-jdk \
+RUN apk add --no-cache --virtual .build-deps openjdk17-jdk \
     && rm -rf /var/cache/apk/*
 
 # Set the working directory in the final image
