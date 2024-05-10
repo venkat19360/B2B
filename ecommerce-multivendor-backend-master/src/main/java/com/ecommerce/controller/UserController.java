@@ -44,6 +44,10 @@ public class UserController {
 	public ResponseEntity<CommonApiResponse> registerUser(@RequestBody RegisterUserRequestDto request) {
 		return this.userResource.registerUser(request);
 	}
+		@GetMapping("/test")
+	public String tests(){
+		return"Backend Started...";
+	}
 	
 	@PostMapping("login")
 	@Operation(summary =  "Api to login any User")
