@@ -10,5 +10,5 @@ COPY target/ecommerce-backend-0.0.1-SNAPSHOT.jar /app/ecommerce.jar
 # Expose port 8081 (or whatever port your Spring Boot app listens on)
 EXPOSE 8081
 
-# Set the entry point for the container to run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "ecommerce.jar"]
+# Set the entry point for the container to run the Spring Boot application with the specified server port
+ENTRYPOINT ["java", "-jar", "-Dserver.port=8081", "ecommerce.jar"]
