@@ -21,3 +21,6 @@ jobs:
     - name: Build with Maven
       working-directory: ./ecommerce-multivendor-backend-master
       run: mvn clean install
+
+    - name: List Target Directory
+      run: ls ./ecommerce-multivendor-backend-master/target
