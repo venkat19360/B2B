@@ -25,7 +25,7 @@ import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("api/user")
-@CrossOrigin(origins = "http://127.0.0.1:8081/")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
 	@Autowired
