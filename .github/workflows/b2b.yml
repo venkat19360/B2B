@@ -32,6 +32,16 @@ jobs:
           -Dsonar.java.binaries=. \
           -Dsonar.projectKey=$SONAR_PROJECT_KEY
           
+    - name: OWASP Dependency Check
+      run: |
+        dependency-check --scan /home/ubuntu/actions-runner/_work/B2C/B2C/ecommerce-multivendor-backend-master/target --format XML --project B2B --out /tmp/dependency-check-report
+
+    - name: Archive Dependency Check reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: dependency-check-report
+        path: /tmp/dependency-check-report/dependency-check-report.xml
+
     - name: Build with Maven
       working-directory: ./ecommerce-multivendor-backend-master
       run: mvn clean install
