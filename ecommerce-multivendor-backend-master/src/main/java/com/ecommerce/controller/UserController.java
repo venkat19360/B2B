@@ -30,7 +30,7 @@ import io.swagger.v3.oas.annotations.Operation;
 public class UserController {
 
 	@Autowired
-	private UserResource userResource
+	private UserResource userResource;
 
 	@Autowired
 	private UserDao ud;
