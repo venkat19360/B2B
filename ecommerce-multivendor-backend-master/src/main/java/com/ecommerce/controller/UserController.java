@@ -31,6 +31,14 @@ public class UserController {
 	@Autowired
 	private UserResource userResource;
 
+	@Autowired
+	private UserDao ud;
+
+
+	@GetMapping("/getFromDb")
+	public User get(){
+		return ud.findById(1);
+	}
 	// RegisterUserRequestDto, we will set only email, password & role from UI
 	@PostMapping("/admin/register")
 	@Operation(summary = "Api to register Admin")
