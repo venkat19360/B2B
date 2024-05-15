@@ -21,6 +21,23 @@ jobs:
     - name: Build with Maven
       working-directory: ./ecommerce-multivendor-backend-master
       run: mvn clean install
-
+      
     - name: List Target Directory
       run: ls ./ecommerce-multivendor-backend-master/target
+      
+    - name: Upload Artifact to GitHub
+      uses: actions/upload-artifact@v3
+      with:
+        name: package
+        path: ./ecommerce-multivendor-backend-master/target/*.jar
+        
+    - name: Upload to JFrog
+      env:
+        JFROG_URL: ${{ secrets.JFROG_URL }}
+        JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
+        JFROG_REPO: ${{ secrets.JFROG_REPO }}
+      run: |
+        curl -X PUT \
+          -T ./ecommerce-multivendor-backend-master/target/*.jar \
+          -u $JFROG_USERNAME \
+          $JFROG_URL/artifactory/$JFROG_REPO/com/example/file/1.0.0/file-1.0.0.jar
