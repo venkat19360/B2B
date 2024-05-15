@@ -5,7 +5,6 @@ on:
     branches: [ "sit1" ]
 
 jobs:
-
   build:
     runs-on: self-hosted
     
@@ -17,6 +16,20 @@ jobs:
       with:
         java-version: '17'
         distribution: 'adopt'
+        
+    - name: Sonar Analysis
+      env:
+        SONAR_HOST_URL: http://15.207.180.250:9000/
+        SONAR_LOGIN: squ_52aeb45f620e34cb876ced6eaff43fb955f6dc83
+        SONAR_PROJECT_NAME: b2b1
+        SONAR_PROJECT_KEY: b2b1
+      run: |
+        mvn sonar:sonar \
+          -Dsonar.host.url=$SONAR_HOST_URL \
+          -Dsonar.login=$SONAR_LOGIN \
+          -Dsonar.projectName=$SONAR_PROJECT_NAME \
+          -Dsonar.java.binaries=. \
+          -Dsonar.projectKey=$SONAR_PROJECT_KEY
         
     - name: Build with Maven
       working-directory: ./ecommerce-multivendor-backend-master
@@ -30,14 +43,3 @@ jobs:
       with:
         name: package
         path: ./ecommerce-multivendor-backend-master/target/*.jar
-        
-    - name: Upload to JFrog
-      env:
-        JFROG_URL: ${{ secrets.JFROG_URL }}
-        JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
-        JFROG_REPO: ${{ secrets.JFROG_REPO }}
-      run: |
-        curl -X PUT \
-          -T ./ecommerce-multivendor-backend-master/target/*.jar \
-          -u $JFROG_USERNAME \
-          $JFROG_URL/artifactory/$JFROG_REPO/com/example/file/1.0.0/file-1.0.0.jar
