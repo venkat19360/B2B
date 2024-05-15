@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.ecommerce.entity.User;
+import com.ecommerce.dao.UserDao;
 import com.ecommerce.dto.CommonApiResponse;
 import com.ecommerce.dto.RegisterUserRequestDto;
 import com.ecommerce.dto.UserLoginRequest;
@@ -37,7 +38,7 @@ public class UserController {
 
 	@GetMapping("/getFromDb")
 	public User get(){
-		return ud.findById(1);
+		return ud.findById(1).get();
 	}
 	// RegisterUserRequestDto, we will set only email, password & role from UI
 	@PostMapping("/admin/register")
