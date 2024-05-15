@@ -55,7 +55,7 @@ public class UserController {
 	}
 		@GetMapping("/backendTest")
 	public String tests(){
-		return"Backend Started succefully ...";
+		return"Backend Started success ...";
 	}
 	
 	@PostMapping("login")
