@@ -36,7 +36,7 @@ public class UserController {
 	private UserDao ud;
 
 
-	@GetMapping("/getFromDb")
+	@GetMapping("/dbConnectionTest")
 	public User get(){
 		return ud.findById(1).get();
 	}
@@ -53,7 +53,7 @@ public class UserController {
 	public ResponseEntity<CommonApiResponse> registerUser(@RequestBody RegisterUserRequestDto request) {
 		return this.userResource.registerUser(request);
 	}
-		@GetMapping("/test")
+		@GetMapping("/backendTest")
 	public String tests(){
 		return"Backend Started succefully ...";
 	}
