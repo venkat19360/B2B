@@ -26,11 +26,11 @@ import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("api/user")
-@CrossOrigin(origins = "http://15.207.180.250:8081/")
+@CrossOrigin(origins = "http://15.207.180.250:3000/")
 public class UserController {
 
 	@Autowired
-	private UserResource userResource;
+	private UserResource userResource
 
 	@Autowired
 	private UserDao ud;
