@@ -21,7 +21,7 @@ jobs:
       working-directory: /home/ubuntu/actions-runner/_work/B2C/B2C/ecommerce-multivendor-backend-master
       env:
         SONAR_HOST_URL: http://15.207.180.250:9000/
-        SONAR_LOGIN: squ_52aeb45f620e34cb876ced6eaff43fb955f6dc83
+        SONAR_LOGIN: squ_6a4ae691d399eca00a825b57480cdbc88bfc5d0f 
         SONAR_PROJECT_NAME: b2b1
         SONAR_PROJECT_KEY: b2b1
       run: |
