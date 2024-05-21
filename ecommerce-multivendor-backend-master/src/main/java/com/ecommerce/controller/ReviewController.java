@@ -2,7 +2,6 @@ package com.ecommerce.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +18,7 @@ import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("api/product/review")
-@CrossOrigin(origins = "http://15.207.180.250:8081")
+//@CrossOrigin(origins = "http://15.207.180.250:8081")
 public class ReviewController {
 	
 	@Autowired

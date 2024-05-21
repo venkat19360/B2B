@@ -21,7 +21,7 @@ import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("api/category")
-@CrossOrigin(origins = "http://15.207.180.250:8081")
+//@CrossOrigin(origins = "http://15.207.180.250:8081")
 public class CategoryController {
 	
 	@Autowired
